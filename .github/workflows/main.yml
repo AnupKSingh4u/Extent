@@ -1,0 +1,26 @@
+name: Sanity Tests on Framework Change
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/test/**'
+      - 'pom.xml'
+
+jobs:
+  run-sanity-tests:
+    name: Run @Sanity Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+
+      - name: Run Sanity Tagged Tests
+        run: mvn clean test -Dcucumber.filter.tags="@Sanity"
