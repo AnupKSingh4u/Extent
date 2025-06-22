@@ -11,7 +11,7 @@ import io.cucumber.java.en.When;
 
 import java.net.MalformedURLException;
 
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,10 +30,10 @@ public class SampleSteps {
     	//driver.get("https://anupksingh4u.github.io./HandsOn/");
     	
     	
-//    	driver.get("https://www.google.com");
-//    	Thread.sleep(20000); // Wait for 20 seconds to see the page load
-//    	driver.get("https://github.com/AnupKSingh4u/Extent");
-//    	Thread.sleep(20000); // Wait for 20 seconds to see the page load
+    	driver.get("https://www.google.com");
+    	Thread.sleep(20000); // Wait for 20 seconds to see the page load
+    	driver.get("https://github.com/AnupKSingh4u/Extent");
+    	Thread.sleep(20000); // Wait for 20 seconds to see the page load
 //    	WebElement promptArea=driver.findElement(By.id("prompt-textarea"));
 //    	promptArea.click();
 //    	promptArea.sendKeys("What is Saucelabs cloud platform?");
@@ -45,7 +45,9 @@ public class SampleSteps {
 //    	promptArea.sendKeys("What are the international political equations behind iran and Israil war?");
 //    	Thread.sleep(4000);
 //    	sendButton.click();
-    	Thread.sleep(40000);
+//    	Thread.sleep(40000);
+    	
+    	driver.get("https://anupksingh4u.github.io./HandsOn/");
     	driver.quit();
     }
     
@@ -77,7 +79,7 @@ public class SampleSteps {
     @Then("I validate the outcomes")
     public void i_validate_the_outcomes() {
         // Write code here that turns the phrase above into concrete actions
-    Assert.assertEquals("Google", "Google");
+    	 Assertions.assertEquals("Google", "Google");
      
      
 	  //  throw new io.cucumber.java.PendingException();
@@ -110,7 +112,8 @@ public class SampleSteps {
     public void i_verify_the_status_in_step(String expectedStatus) {
         try {
             String actualStatus = getActualStatusSomehow();
-            Assert.assertEquals("Mismatch in status!", expectedStatus, actualStatus);
+          //  Assert.assertEquals("Mismatch in status!", expectedStatus, actualStatus);
+            Assertions.assertEquals(expectedStatus, actualStatus);
             Hooks.scenarioNode.log(Status.PASS, "Verified status: " + actualStatus);
         } catch (AssertionError | Exception e) {
             setStepError(e); // Log to hook
