@@ -7,6 +7,9 @@ import java.util.Map;
 
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -14,41 +17,43 @@ public class DriverFactory {
 	
 
     
-     public WebDriver getDriver(String browser) throws MalformedURLException {
-    	try {
-    	
-    	//if(driver== null) {	
+	public WebDriver getDriver(String browser) throws MalformedURLException {
+	    String username = "oauth-anupksingh4u-d864f";
+	    String accessKey = "4406f55b-95a5-4dfd-8d84-1628bce8f0a5";
+	    String remoteUrl = "https://" + username + ":" + accessKey + "@ondemand.eu-central-1.saucelabs.com/wd/hub";
+	    URL url = new URL(remoteUrl);
 
-    		String username = "oauth-anupksingh4u-d864f";
-            String accessKey = "4406f55b-95a5-4dfd-8d84-1628bce8f0a5";
-            
-            String remoteUrl = "https://" + username + ":" + accessKey + "@ondemand.eu-central-1.saucelabs.com/wd/hub";
+	    // Sauce-specific options — define first
+	    MutableCapabilities sauceOptions = new MutableCapabilities();
+	    sauceOptions.setCapability("name", "My First Test");
+	    sauceOptions.setCapability("build", "Build_1");
+	    sauceOptions.setCapability("tunnelIdentifier", "TUNNEL1"); // ✅ Set BEFORE adding it to browserOptions
 
-            DesiredCapabilities capabilities = new DesiredCapabilities();
-            capabilities.setCapability("browserName", "chrome");
-            capabilities.setCapability("browserVersion", "latest");
+	    if (browser.equalsIgnoreCase("chrome")) {
+	        ChromeOptions browserOptions = new ChromeOptions();
+	        browserOptions.setCapability("platformName", "Windows 10");
+	        browserOptions.setCapability("browserVersion", "latest");
+	        browserOptions.setCapability("sauce:options", sauceOptions);
+	        return new RemoteWebDriver(url, browserOptions);
 
-            // Sauce-specific options
-            MutableCapabilities sauceOptions = new MutableCapabilities();
-            sauceOptions.setCapability("name", "My First Test");
-            sauceOptions.setCapability("build", "Build_1");
-            capabilities.setCapability("sauce:options", sauceOptions);
-            sauceOptions.setCapability("tunnelIdentifier", "TUNNEL1");
+	    } else if (browser.equalsIgnoreCase("firefox")) {
+	        FirefoxOptions browserOptions = new FirefoxOptions();
+	        browserOptions.setCapability("platformName", "Windows 11");
+	        browserOptions.setCapability("browserVersion", "latest");
+	        browserOptions.setCapability("sauce:options", sauceOptions);
+	        return new RemoteWebDriver(url, browserOptions);
 
-            WebDriver driver = new RemoteWebDriver(new URL(remoteUrl), capabilities);
-            return driver;
-    //	}
-    	} catch (MalformedURLException e) {
-			throw new RuntimeException("Invalid Sauce Labs URL: " + e.getMessage());
-	
-    	}
-         catch(Exception e) {
-			e.printStackTrace();
-			throw new RuntimeException("Failed to initialize WebDriver: " + e.getMessage());
-		}
+	    } else if (browser.equalsIgnoreCase("edge")) {
+	        EdgeOptions browserOptions = new EdgeOptions();
+	        browserOptions.setCapability("platformName", "Windows 11");
+	        browserOptions.setCapability("browserVersion", "latest");
+	        browserOptions.setCapability("sauce:options", sauceOptions);
+	        return new RemoteWebDriver(url, browserOptions);
 
-		
-        
-    }
+	    } else {
+	        throw new IllegalArgumentException("Browser not supported: " + browser);
+	    }
+	}
+
 }
 

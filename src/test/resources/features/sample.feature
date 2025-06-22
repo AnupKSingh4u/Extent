@@ -30,7 +30,7 @@ Feature: Title of your feature
     Then I validate the outcomes
     And check more outcomes
 
-  @tag2
+  @Sanity
   Scenario Outline: Title of your scenario outline
     Given I want to write a step with "<name>"
     When I check for the <value> in step
@@ -42,6 +42,6 @@ Feature: Title of your feature
       | name2 |     7 | Fail    |
 
       
-@TestSauceLabs
+@TestSauceLabs @Sanity
   Scenario: Open Google
     Given I open the Google homepage

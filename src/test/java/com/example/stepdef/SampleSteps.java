@@ -24,21 +24,27 @@ public class SampleSteps {
     public void i_open_the_google_homepage() throws InterruptedException, MalformedURLException {
     	DriverFactory driverFactory = new DriverFactory();
     	
-    	WebDriver driver=driverFactory.getDriver("chrome");
-    	driver.get("https://www.google.com");
-    	Thread.sleep(10000); // Wait for 2 seconds to see the page load
-    	driver.get("https://chatgpt.com/");
-    	WebElement promptArea=driver.findElement(By.id("prompt-textarea"));
-    	promptArea.click();
-    	promptArea.sendKeys("What is Saucelabs cloud platform?");
-    	Thread.sleep(4000);
-    	WebElement sendButton = driver.findElement(By.xpath("//button[@id='composer-submit-button']"));
-    	sendButton.click(); 
-    	Thread.sleep(40000);
-    	promptArea.click();
-    	promptArea.sendKeys("What are the international political equations behind iran and Israil war?");
-    	Thread.sleep(4000);
-    	sendButton.click();
+    	WebDriver driver=driverFactory.getDriver("firefox");
+    	driver.get("http://localhost:8080");
+    	Thread.sleep(20000);
+    	//driver.get("https://anupksingh4u.github.io./HandsOn/");
+    	
+    	
+//    	driver.get("https://www.google.com");
+//    	Thread.sleep(20000); // Wait for 20 seconds to see the page load
+//    	driver.get("https://github.com/AnupKSingh4u/Extent");
+//    	Thread.sleep(20000); // Wait for 20 seconds to see the page load
+//    	WebElement promptArea=driver.findElement(By.id("prompt-textarea"));
+//    	promptArea.click();
+//    	promptArea.sendKeys("What is Saucelabs cloud platform?");
+//    	Thread.sleep(4000);
+//    	WebElement sendButton = driver.findElement(By.xpath("//button[@id='composer-submit-button']"));
+//    	sendButton.click(); 
+//    	Thread.sleep(40000);
+//    	promptArea.click();
+//    	promptArea.sendKeys("What are the international political equations behind iran and Israil war?");
+//    	Thread.sleep(4000);
+//    	sendButton.click();
     	Thread.sleep(40000);
     	driver.quit();
     }
