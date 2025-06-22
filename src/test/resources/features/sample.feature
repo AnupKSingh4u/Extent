@@ -49,3 +49,4 @@ Feature: Title of your feature
   @TestSauceLabs @Sanity
   Scenario: Open Google
     Given I open the Google homepage
+    When I check for the "Anup" in step
