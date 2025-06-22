@@ -47,7 +47,7 @@ public class SampleSteps {
 //    	sendButton.click();
 //    	Thread.sleep(40000);
     	
-    	driver.get("https://anupksingh4u.github.io./HandsOn/");
+    	//driver.get("https://anupksingh4u.github.io./HandsOn/");
     	driver.quit();
     }
     
