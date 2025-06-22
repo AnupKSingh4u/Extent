@@ -46,7 +46,3 @@ Feature: Title of your feature
   Scenario: Open Google
     Given I open the Google homepage
     
-  @TestSauceLabs @Sanity
-  Scenario: Open Google
-    Given I open the Google homepage
-    When I check for the "Anup" in step
