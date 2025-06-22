@@ -45,3 +45,7 @@ Feature: Title of your feature
 @TestSauceLabs @Sanity
   Scenario: Open Google
     Given I open the Google homepage
+    
+  @TestSauceLabs @Sanity
+  Scenario: Open Google
+    Given I open the Google homepage
