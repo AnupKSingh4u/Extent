@@ -1,4 +1,4 @@
-name: SUT Repo webhooked workflow
+name: Run @Regression tests on SUT update
 
 on:
   repository_dispatch:
@@ -7,8 +7,10 @@ on:
 jobs:
   run-regression-tests:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
       - name: Set up Java
         uses: actions/setup-java@v3
@@ -16,5 +18,5 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
-      - name: Run Regression Tagged Tests
+      - name: Run @Regression Tagged Tests
         run: mvn clean test -Dcucumber.filter.tags="@Regression"
