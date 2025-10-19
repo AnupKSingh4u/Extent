@@ -1,4 +1,5 @@
 com\example\reports\ExtentReportManager.class
 com\example\runners\TestRunner.class
+com\example\Base\DriverFactory.class
 com\example\hooks\Hooks.class
-com\example\stepDef\SampleSteps.class
+com\example\stepdef\SampleSteps.class

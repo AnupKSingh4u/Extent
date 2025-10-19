@@ -26,13 +26,13 @@ public class SampleSteps {
     	
     	WebDriver driver=driverFactory.getDriver("firefox");
     	driver.get("http://localhost:8080");
-    	Thread.sleep(20000);
+    	Thread.sleep(40000);
     	//driver.get("https://anupksingh4u.github.io./HandsOn/");
     	
     	
-    	driver.get("https://www.google.com");
-    	Thread.sleep(20000); // Wait for 20 seconds to see the page load
-    	driver.get("https://github.com/AnupKSingh4u/Extent");
+//    	driver.get("https://www.google.com");
+//    	Thread.sleep(20000); // Wait for 20 seconds to see the page load
+//    	driver.get("https://github.com/AnupKSingh4u/Extent");
     	Thread.sleep(20000); // Wait for 20 seconds to see the page load
 //    	WebElement promptArea=driver.findElement(By.id("prompt-textarea"));
 //    	promptArea.click();

@@ -1,0 +1,27 @@
+-------------------------------------------------------------------------------
+Test set: com.example.runners.TestRunner
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 2.561 s <<< FAILURE! -- in com.example.runners.TestRunner
+Title of your feature.Open Google -- Time elapsed: 1.729 s <<< ERROR!
+org.openqa.selenium.SessionNotCreatedException: 
+Could not start a new session. Response code 402. Message: Uh oh, you've run out of minutes!
+Please visit https://saucelabs.com/pricing to purchase a subscription. 
+Host info: host: 'ANUP', ip: '192.168.1.34'
+Build info: version: '4.21.0', revision: '79ed462ef4'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.4'
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: latest, moz:debuggerAddress: true, moz:firefoxOptions: {}, platformName: Windows 11, sauce:options: Capabilities {build: Build_...}]}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: latest, moz:debuggerAddress: true, moz:firefoxOptions: {}, platformName: Windows 11, sauce:options: Capabilities {build: Build_...}
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:114)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:75)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:61)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:162)
+	at org.openqa.selenium.remote.TracedCommandExecutor.execute(TracedCommandExecutor.java:51)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:232)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:161)
+	at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:141)
+	at com.example.Base.DriverFactory.getDriver(DriverFactory.java:44)
+	at com.example.stepdef.SampleSteps.i_open_the_google_homepage(SampleSteps.java:27)
+	at ✽.I open the Google homepage(classpath:features/sample.feature:47)
+
